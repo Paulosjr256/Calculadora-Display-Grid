@@ -1,21 +1,24 @@
-function adicionarCaracter(caracter){
-    const valorInput = document.querySelector('.display').value
-    document.querySelector('.display').value = valorInput + caracter
-    console.log(caracter)
-
-}
-function limparTela(){
-    document.querySelector('.display').value = ''
-
-}
-function calcular(){
-    const valorInput = document.querySelector('.display').value
-
-    document.querySelector('.display').value = eval(valorInput)
+function adicionarCaracter(caracter) {
+    const display = document.getElementById('display');
+    display.value += caracter;
 }
 
-function invert(){
-    const valorInput = document.querySelector('.display') .value
+function limparTela() {
+    document.getElementById('display').value = '';
+}
 
-    document.querySelector('.display') .value = valorInput * -1
+function calcular() {
+    const display = document.getElementById('display');
+    try {
+        display.value = eval(display.value);
+    } catch (e) {
+        display.value = 'Erro';
+    }
+}
+
+function inverterSinal() {
+    const display = document.getElementById('display');
+    if (display.value) {
+        display.value = String(-1 * parseFloat(display.value));
+    }
 }
